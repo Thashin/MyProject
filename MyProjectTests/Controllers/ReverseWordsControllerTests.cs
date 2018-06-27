@@ -14,6 +14,8 @@ namespace MyProject.Controllers.Tests
         [TestMethod()]
         public void GetTest()
         {
+            var controller = new ReverseWordsController();
+            controller.Get();
             Assert.Fail();
         }
     }
