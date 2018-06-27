@@ -16,15 +16,19 @@ namespace MyProject.Controllers
         }
 
         // 92 is the highest value that is supported add error handling for after 92
-        public long Get([FromUri] int n)
+        public HttpResponseMessage Get([FromUri] int n)
         {
+            if(n>92||n<-93)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
             long[] matrix = { 1, 1, 1, 0 };
             if(n<0 && n%2==0)
             {
-                return matrixPow(matrix, n)[1]*-1;
+                return Request.CreateResponse(HttpStatusCode.OK,matrixPow(matrix, n)[1]*-1);
             }
 
-            return matrixPow(matrix, n)[1];
+            return Request.CreateResponse(HttpStatusCode.OK,matrixPow(matrix, n)[1]);
         }
 
 
