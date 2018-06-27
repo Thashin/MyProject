@@ -10,9 +10,9 @@ namespace MyProject.Controllers
     public class ReverseWordsController : ApiController
     {
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string Get()
         {
-            return new string[] { "" };
+            return "";
         }
 
         // GET api/values/5
