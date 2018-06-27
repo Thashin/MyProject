@@ -15,7 +15,7 @@ namespace MyProject.Controllers
         private string scalene = "Scalene";
 
 
-        // GET api/values/5
+        
         public string Get([FromUri] int a, [FromUri] int b, [FromUri] int c)
         {
            
@@ -32,15 +32,15 @@ namespace MyProject.Controllers
                 {
                     return error;
                 }
-                if (sides.Distinct().Count() == 1) //There is only one distinct value in the set, therefore all sides are of equal length
+                if (sides.Distinct().Count() == 1) 
                 {
                     return equilateral;
                 }
-                if (sides.Distinct().Count() == 2) //There are only two distinct values in the set, therefore two sides are equal and one is not
+                if (sides.Distinct().Count() == 2) 
                 {
                     return isosceles;
                 }
-                if (sides.Distinct().Count() == 3) // There are three distinct values in the set, therefore no sides are equal
+                if (sides.Distinct().Count() == 3) 
                 {
                     return scalene;
                 }

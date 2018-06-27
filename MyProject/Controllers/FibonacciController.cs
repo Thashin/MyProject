@@ -25,30 +25,28 @@ namespace MyProject.Controllers
             long[] matrix = { 1, 1, 1, 0 };
             if(n<0 && n%2==0)
             {
-                return Request.CreateResponse(HttpStatusCode.OK,matrixPow(matrix, n)[1]*-1);
+                return Request.CreateResponse(HttpStatusCode.OK,powMatrix(matrix, n)[1]*-1);
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK,matrixPow(matrix, n)[1]);
+            return Request.CreateResponse(HttpStatusCode.OK,powMatrix(matrix, n)[1]);
         }
 
-
-        // Computes the power of a matrix. The matrix is packed in row-major order.
-        private static long[] matrixPow(long[] matrix, int n)
+        
+        private static long[] powMatrix(long[] matrix, int n)
         {
 
             long[] result = { 1, 0, 0, 1 };
             while (n != 0)
-            {  // Exponentiation by squaring
+            {  
                 if (n % 2 != 0)
-                    result = matrixMultiply(result, matrix);
+                    result = multiplyMatrix(result, matrix);
                 n /= 2;
-                matrix = matrixMultiply(matrix, matrix);
+                matrix = multiplyMatrix(matrix, matrix);
             }
             return result;
         }
-
-        // Multiplies two matrices.
-        private static long[] matrixMultiply(long[] x, long[] y)
+        
+        private static long[] multiplyMatrix(long[] x, long[] y)
         {
             return new long[] {
             (x[0]*y[0])+(x[1]*y[2]),
