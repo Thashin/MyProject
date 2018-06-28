@@ -9,13 +9,15 @@ namespace MyProject.Controllers
 {
     public class FibonacciController : ApiController
     {
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "" };
-        }
 
-        // 92 is the highest value that is supported add error handling for after 92
+
+        /// <summary>
+        /// This calculates the nth Fibonacci number.
+        /// For n greater than 92 and n less than -92 produces a fibonacci number that cannot be held in a long
+        /// This algorithm was taken from https://www.nayuki.io/page/fast-fibonacci-algorithms
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns>The nth Fibonacci number</returns>
         public HttpResponseMessage Get([FromUri] int n)
         {
             if(n>92||n<-93)
@@ -31,7 +33,12 @@ namespace MyProject.Controllers
             return Request.CreateResponse(HttpStatusCode.OK,powMatrix(matrix, n)[1]);
         }
 
-        
+        /// <summary>
+        /// Calculates the nth power of the base case matrix
+        /// </summary>
+        /// <param name="matrix"></param>
+        /// <param name="n"></param>
+        /// <returns>nth power of the base matrix</returns>
         private static long[] powMatrix(long[] matrix, int n)
         {
 
@@ -45,7 +52,12 @@ namespace MyProject.Controllers
             }
             return result;
         }
-        
+        /// <summary>
+        /// Multiplies 2 2x2 matrices
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns>a 2x2 matrix</returns>
         private static long[] multiplyMatrix(long[] x, long[] y)
         {
             return new long[] {
