@@ -10,18 +10,19 @@ namespace MyProject.Controllers
     public class ReverseWordsController : ApiController
     {
         [HttpGet]
-        public string Get()
+        public HttpResponseMessage Get()
         {
-            return "";
+            return Request.CreateResponse(HttpStatusCode.OK, "");
         }
-
-        // GET api/values/5
-        public string Get([FromUri] string sentence)
+        
+        public HttpResponseMessage Get([FromUri] string sentence)
         {
 
-            return string.Join(" ", sentence
-                .Split(' ')
-                .Select(x => new string(x.Reverse().ToArray())));
+            return Request.CreateResponse(HttpStatusCode.OK, string.Join(" ", sentence
+                                                                   .Split(' ')
+                                                                   .Select(x => new string(x.Reverse()
+                                                                                            .ToArray()
+                                                                                           ))));
         }
 
     }
