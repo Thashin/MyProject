@@ -15,19 +15,22 @@ namespace MyProject.Controllers
         private const string scalene = "Scalene";
 
 
-
         public HttpResponseMessage Get([FromUri] int a, [FromUri] int b, [FromUri] int c)
         {
 
             return Request.CreateResponse(HttpStatusCode.OK, DetermineType(a, b, c));
         }
 
-        ///<summary> Determines the type of triangle based on the length of the sides
-        ///There are two error cases in to look for
+        /// <summary>
+        /// Determines the type of triangle based on the length of the sides
+        /// There are two error cases in to look for
         /// 1) a negative length
         /// 2) the value of the longest side is less than or equal to the sum of the other 2 sides
-        ///</summary>
-
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <returns>Type of triangle based on length of sides</returns>
         private string DetermineType(int a,int b, int c)
         {
             if (a <= 0 || b <= 0 || c <= 0)
