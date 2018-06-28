@@ -26,7 +26,7 @@ namespace MyProject.Controllers.Tests
         }
 
         [TestMethod()]
-        public void GetEmptyTest()
+        public void EmptyTest()
         {
             var expected = "";
             sut.Get().TryGetContentValue(out string actual);
@@ -34,7 +34,7 @@ namespace MyProject.Controllers.Tests
         }
 
         [TestMethod()]
-        public void GetOneWordTest()
+        public void OneWordTest()
         {
             var expected = "staH";
             sut.Get("Hats").TryGetContentValue(out string actual);
@@ -42,7 +42,7 @@ namespace MyProject.Controllers.Tests
         }
 
         [TestMethod()]
-        public void GetParagraphTest()
+        public void ParagraphTest()
         {
             var expected = "retnE ruoy txet ot eb desrever ro desrevernu tseT.ereh yb kcilc a gnisrever noitcnuf nottub evoba ot hctaw " +
                 "siht txet eb kcilC.desrever eht emas noitcnuf nottub niaga ot hctaw eht desrever txet eb esreveR'.desrevernu 'txeT lliw" +

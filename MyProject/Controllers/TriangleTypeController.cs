@@ -9,10 +9,10 @@ namespace MyProject.Controllers
 {
     public class TriangleTypeController : ApiController
     {
-        private string error = "Error";
-        private string equilateral = "Equilateral";
-        private string isosceles = "Isosceles";
-        private string scalene = "Scalene";
+        private const string error = "Error";
+        private const string equilateral = "Equilateral";
+        private const string isosceles = "Isosceles";
+        private const string scalene = "Scalene";
 
 
         
